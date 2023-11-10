@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CatalogueController extends AbstractController
@@ -11,11 +11,10 @@ class CatalogueController extends AbstractController
     /**
      * @Route("/catalogue", name="app_catalogue")
      */
-    public function index(): JsonResponse
+    public function index(): Response
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/CatalogueController.php',
+        return $this->render('catalogue/index.html.twig', [
+            'controller_name' => 'CatalogueController',
         ]);
     }
 }
